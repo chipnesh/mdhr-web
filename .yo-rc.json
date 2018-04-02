@@ -3,10 +3,10 @@
     "promptValues": {
       "nativeLanguage": "ru"
     },
-    "jhipsterVersion": "4.14.1",
+    "jhipsterVersion": "4.14.0",
     "baseName": "web",
     "clientFramework": "angularX",
-    "useSass": false,
+    "useSass": true,
     "enableTranslation": true,
     "nativeLanguage": "ru",
     "languages": [

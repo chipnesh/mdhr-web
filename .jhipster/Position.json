@@ -1,0 +1,26 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "departmentPosition",
+            "otherEntityName": "department",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180402162830",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "position",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

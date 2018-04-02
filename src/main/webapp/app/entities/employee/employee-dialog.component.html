@@ -1,0 +1,86 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myEmployeeLabel" jhiTranslate="webApp.employee.home.createOrEditLabel">Create or edit a Employee</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!employee.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="employee.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="webApp.employee.firstname" for="field_firstname">Firstname</label>
+            <input type="text" class="form-control" name="firstname" id="field_firstname"
+                [(ngModel)]="employee.firstname" required/>
+            <div [hidden]="!(editForm.controls.firstname?.dirty && editForm.controls.firstname?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.firstname?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="webApp.employee.lastname" for="field_lastname">Lastname</label>
+            <input type="text" class="form-control" name="lastname" id="field_lastname"
+                [(ngModel)]="employee.lastname" required/>
+            <div [hidden]="!(editForm.controls.lastname?.dirty && editForm.controls.lastname?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.lastname?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="webApp.employee.middlename" for="field_middlename">Middlename</label>
+            <input type="text" class="form-control" name="middlename" id="field_middlename"
+                [(ngModel)]="employee.middlename" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="webApp.employee.phone" for="field_phone">Phone</label>
+            <input type="text" class="form-control" name="phone" id="field_phone"
+                [(ngModel)]="employee.phone" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="webApp.employee.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                [(ngModel)]="employee.email" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="webApp.employee.birthDate" for="field_birthDate">Birth Date</label>
+            <div class="input-group">
+                <input id="field_birthDate" type="text" class="form-control" name="birthDate" ngbDatepicker  #birthDateDp="ngbDatepicker"
+                       [minDate]="{year: 1950, month: 1, day: 1}"
+                       [(ngModel)]="employee.birthDate"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="birthDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="webApp.employee.workingSince" for="field_workingSince">Working Since</label>
+            <div class="input-group">
+                <input id="field_workingSince" type="text" class="form-control" name="workingSince" ngbDatepicker #workingSinceDp="ngbDatepicker"
+                       [minDate]="{year: 1950, month: 1, day: 1}"
+                       [(ngModel)]="employee.workingSince"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="workingSinceDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
