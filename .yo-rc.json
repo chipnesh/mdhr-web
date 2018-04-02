@@ -3,23 +3,15 @@
     "promptValues": {
       "nativeLanguage": "ru"
     },
-    "jhipsterVersion": "4.14.0",
+    "jhipsterVersion": "4.14.1",
     "baseName": "web",
     "clientFramework": "angularX",
-    "useSass": true,
+    "useSass": false,
     "enableTranslation": true,
     "nativeLanguage": "ru",
     "languages": [
       "ru"
     ],
-    "clientPackageManager": "yarn",
-    "authenticationType": "true",
-    "cacheProvider": "no",
-    "databaseType": "true",
-    "devDatabaseType": "true",
-    "prodDatabaseType": "true",
-    "applicationType": "monolith",
-    "jhiPrefix": "jhi",
-    "skipServer": true
+    "clientPackageManager": "yarn"
   }
 }

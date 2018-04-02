@@ -8,7 +8,7 @@ import { createRequestOption } from '../model/request-util';
 
 @Injectable()
 export class UserService {
-    private resourceUrl = SERVER_API_URL + 'api/users';
+    private resourceUrl = SERVER_API_URL + 'auth/api/users';
 
     constructor(private http: HttpClient) { }
 
@@ -34,7 +34,7 @@ export class UserService {
     }
 
     authorities(): Observable<string[]> {
-        return Observable.of(['ROLE_USER', 'ROLE_ADMIN']);
+        return this.http.get<string[]>(SERVER_API_URL + 'auth/api/users/authorities');
     }
 
 }

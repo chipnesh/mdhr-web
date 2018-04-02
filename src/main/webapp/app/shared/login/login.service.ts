@@ -35,12 +35,11 @@ export class LoginService {
         });
     }
 
-    loginWithToken(jwt, rememberMe) {
-        return this.authServerProvider.loginWithToken(jwt, rememberMe);
-    }
-
     logout() {
-        this.authServerProvider.logout().subscribe();
-        this.principal.authenticate(null);
+        if (this.principal.isAuthenticated()) {
+            this.authServerProvider.logout().subscribe(() => this.principal.authenticate(null));
+        } else {
+            this.principal.authenticate(null);
+        }
     }
 }
