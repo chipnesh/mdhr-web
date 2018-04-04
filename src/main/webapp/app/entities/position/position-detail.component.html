@@ -8,7 +8,11 @@
         <dd>
             <span>{{position.name}}</span>
         </dd>
-        <dt><span jhiTranslate="webApp.position.departmentPosition">Department Position</span></dt>
+        <dt><span jhiTranslate="webApp.position.grade">Grade</span></dt>
+        <dd>
+            <span>{{position.grade}}</span>
+        </dd>
+        <dt><span jhiTranslate="webApp.position.department">Department Position</span></dt>
         <dd>
             <div *ngIf="position.departmentId">
                 <a [routerLink]="['/department', position.departmentId]">{{position.departmentName}}</a>

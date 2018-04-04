@@ -17,7 +17,8 @@
                 "title": "Должность"
             },
             "name": "Имя",
-            "departmentPosition": "Отдел"
+            "grade": "Грейд",
+            "department": "Отдел"
         }
     }
 }

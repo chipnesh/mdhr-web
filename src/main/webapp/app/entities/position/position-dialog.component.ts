@@ -34,11 +34,7 @@ export class PositionDialogComponent implements OnInit {
     ngOnInit() {
         this.isSaving = false;
         this.departmentService.query()
-            .subscribe((res: HttpResponse<Department[]>) => {
-                this.departments = res.body;
-                }, (res: HttpErrorResponse) => {
-                this.onError(res.message);
-            });
+            .subscribe((res: HttpResponse<Department[]>) => { this.departments = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {
@@ -77,6 +73,10 @@ export class PositionDialogComponent implements OnInit {
 
     trackDepartmentById(index: number, item: Department) {
         return item.id;
+    }
+
+    trackGrade(index: number, item: number) {
+        return item;
     }
 }
 
